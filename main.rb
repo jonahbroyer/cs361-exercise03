@@ -1,15 +1,14 @@
 class Student
-  MAX_COURSES = 5
 
-  def add_to_schedule(course, schedule, quarter_id)
-    quarter = schedule.quarter[quarter_id]
-    course_list_for_quarter = quarter.course_list
-    max_courses = course_list_for_quarter.maximum_number_of_courses
-    course_list_for_quarter.add(course) if max_courses < MAX_COURSES
+MAX_COURSES = 5
+
+  def remove_from_schedule(course_list, course)
+    course_list.remove(course)
   end
 
-  def remove_from_schedule(course, schedule, quarter_id)
-    schedule.quarter[quarter_id].course_list.remove(course)
+  def add_to_schedule(course_list, course)
+    course_list.add(course) if course_list.maximum_number_of_courses < MAX_COURSES
+    end
   end
-  
+
 end
